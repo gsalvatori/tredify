@@ -16,19 +16,18 @@ class Polygon:
 
 	def init(self):
 
-		xs = np.arange(0, 10, 0.4)
+		cube_points = np.arange(0, 10, 0.4)
 		verts = []
 
 		# number of polygons
 		figures_num = [0.0, 1.0, 2.0, 3.0]
 
 		for z in figures_num:
-		    ys = np.random.rand(len(xs))
+		    ys = np.random.rand(len(cube_points))
 		    ys[0], ys[-1] = 0, 0
-		    verts.append(list(zip(xs, ys)))
+		    verts.append(list(zip(cube_points, ys)))
 
-		print verts[0]
-
+		    
 		poly = PolyCollection(verts, facecolors=[self.convert_color('r'), self.convert_color('g'), self.convert_color('b'),
 		                                         self.convert_color('y')])
 		poly.set_alpha(0.7)
