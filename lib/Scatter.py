@@ -1,29 +1,42 @@
 import numpy as np
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
+import matplotlib.cm as cm
+import random
 
 
 class Scatter:
 
-	def __init__(self):
+	def __init__(self,dict_):
 		self.fig = plt.figure()
 		self.ax = self.fig.add_subplot(111, projection='3d')
-		
-	def randrange(self,n, vmin, vmax):
-	    return (vmax - vmin)*np.random.rand(n) + vmin
+		self.dict = dict_
+
+	def get_colors(self):
+		return cm.rainbow(np.linspace(0, 1, len(self.dict)))
+
+	def get_shapes(self):
+		return {0: 'tickleft', '|': 'vline', 2: 'tickup', 3: 'tickdown', 4: 'caretleft', 5: 'caretright', ',': 'pixel', 1: 'tickright', '+': 'plus', 'D': 'diamond', 'v': 'triangle_down',
+		'1': 'tri_down', 'h': 'hexagon1', '*': 'star', 'None': 'nothing', '<': 'triangle_left', '': 'nothing', '2': 'tri_up', 's': 'square', ' ': 'nothing',
+		6: 'caretup', 'H': 'hexagon2', '3': 'tri_left', 'x': 'x', 7: 'caretdown', '4': 'tri_right', 'p': 'pentagon',
+		'>': 'triangle_right', '8': 'octagon', 'o': 'circle', '.': 'point', 'd': 'thin_diamond', '^': 'triangle_up', '_': 'hline'}
 
 	def init(self):
 
-		n = 100
+		colors = self.get_colors()
+		shapes = self.get_shapes()
+		marker = random.choice(shapes.keys())
 
-		for c, m, zl, zh in [('r', 'o', -50, -25), ('b', '^', -30, -5)]:
-			xs = self.randrange(n, 23, 32)
-			ys = self.randrange(n, 0, 100)
-			zs = self.randrange(n, zl, zh)
-			self.ax.scatter(xs, ys, zs, c=c, marker=m)
+		for i,c in zip(range(0,len(self.dict)),colors):
+			xs = self.dict[i]['x']
+			ys = self.dict[i]['y']
+			zs = self.dict[i]['z']
+			self.ax.scatter(xs, ys, zs, c=c, marker=marker)
 
 		self.ax.set_xlabel('X Label')
 		self.ax.set_ylabel('Y Label')
 		self.ax.set_zlabel('Z Label')
 
 		plt.show()
+		
+
