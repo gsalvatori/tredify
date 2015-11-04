@@ -11,12 +11,14 @@ from config import *
 from Polygon import *
 from Scatter import *
 from Pie import *
+from Bar import *
 
 
 if __name__ == '__main__':
 	
-	test = ParsePie("/home/gabriele/Scrivania/tredify/json/pie.json")
+	test = ParseBar("/home/gabriele/Scrivania/tredify/json/bar.json")
 	dict_ = test.process_data()
 
-	pie = Pie(dict_,"Movies")
-	pie.init()
+	bar = Bar(dict_)
+	bar.init()
+	

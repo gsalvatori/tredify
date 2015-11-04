@@ -42,6 +42,19 @@ class ParsePie(Parser):
             print "[ ERROR ] Total percentage must be equal to 100"
 
 
+class ParseBar(Parser):
+    def __init__(self,filename):
+        Parser.__init__(self, filename)
+        self.file = filename
+
+    def process_data(self):
+        parse = Parser(self.file)
+        content = parse.load_json()
+
+        return content
+
+
+
 
 
 
