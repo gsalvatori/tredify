@@ -1,0 +1,1 @@
+A Python framework to plot 2D and 3D structures from JSON data.
