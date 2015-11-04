@@ -5,7 +5,6 @@ import argparse
 
 sys.path.insert(0, 'lib/')
 from Parser import *
-from config import *
 from Polygon import *
 from Scatter import *
 from Pie import *
