@@ -1,0 +1,14 @@
+[
+    {
+        "LABEL": "Drama",
+        "PERCENTAGE":30
+    },
+    {
+        "LABEL": "Scifi",
+        "PERCENTAGE":60 
+    },
+    {
+        "LABEL": "Action",
+        "PERCENTAGE": 10
+    }
+]

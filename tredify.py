@@ -14,8 +14,9 @@ from Scatter import *
 
 if __name__ == '__main__':
 	
-	test = ParseScatter("/home/gabriele/Scrivania/tredify/json/scatter.json")
+	test = ParsePie("/home/gabriele/Scrivania/tredify/json/pie.json")
 	dict_ = test.process_data()
 
-	scatter = Scatter(dict_)
-	scatter.init()
+	print dict_
+	# pie = Pie(dict_)
+	# pie.init()
