@@ -49,10 +49,6 @@ class Pie:
 
 		pie(fracs, explode=explode, labels=labels,
 		                autopct='%1.1f%%', shadow=True, startangle=90)
-		                # The default startangle is 0, which would start
-		                # the Frogs slice on the x-axis.  With startangle=90,
-		                # everything is rotated counter-clockwise by 90 degrees,
-		                # so the plotting starts on the positive y-axis.
 
 		title(self.title, bbox={'facecolor':'0.8', 'pad':5})
 
