@@ -32,7 +32,8 @@ if __name__ == '__main__':
 		bar = Bar(dict_bar)
 		if args.view == "Image":
 			bar.init("Image")
-		bar.init("GUI")
+		else:
+			bar.init("GUI")
 
 	elif args.type == "Scatter":
 		parse_scatter = ParseScatter(args.input)
@@ -42,7 +43,8 @@ if __name__ == '__main__':
 
 		if args.view == "Image":
 			scatter.init("Image")
-		scatter.init("GUI")
+		else:
+			scatter.init("GUI")
 
 	elif args.type == "Pie":
 		parse_pie = ParseBar(args.input)
@@ -52,7 +54,8 @@ if __name__ == '__main__':
 
 		if args.view == "Image":
 			pie.init("Image")
-		pie.init("GUI")
+		else:
+			pie.init("GUI")
 
 
 
