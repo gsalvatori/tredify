@@ -11,7 +11,6 @@ class Parser:
 			data = json.load(data_file)
 		return data
 
-
 class ParseScatter(Parser):
     def __init__(self,filename):
         Parser.__init__(self, filename)
@@ -21,7 +20,6 @@ class ParseScatter(Parser):
     	parse = Parser(self.file)
     	content = parse.load_json()
     	return content
-
 
 class ParsePie(Parser):
     def __init__(self,filename):
@@ -40,7 +38,6 @@ class ParsePie(Parser):
             return content
         else:
             print "[ ERROR ] Total percentage must be equal to 100"
-
 
 class ParseBar(Parser):
     def __init__(self,filename):

@@ -14,7 +14,6 @@ class Pie:
 		self.dict = dict_
 		self.title = title
 
-
 	def get_labels(self):
 		labels = []
 		for i in range(0,len(self.dict)):
@@ -22,14 +21,12 @@ class Pie:
 
 		return labels
 
-
 	def get_fractions(self):
 		fractions = []
 		for i in range(0,len(self.dict)):
 			fractions.append(self.dict[i]["PERCENTAGE"])
 
 		return fractions
-
 
 	def get_exploded_pieces(self):
 		exploded = []
@@ -42,7 +39,6 @@ class Pie:
 				exploded.append(0)
 				
 		return exploded
-
 
 	def init(self):
 		labels = self.get_labels()
