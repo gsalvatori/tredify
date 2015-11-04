@@ -3,6 +3,7 @@ from matplotlib.collections import PolyCollection
 from matplotlib.colors import colorConverter
 import matplotlib.pyplot as plt
 import numpy as np
+from pylab import *
 
 
 class Polygon:
@@ -14,7 +15,7 @@ class Polygon:
 	def convert_color(self,arg):
 	    return colorConverter.to_rgba(arg, alpha=0.6)
 
-	def init(self):
+	def init(self,view):
 
 		cube_points = np.arange(0, 10, 0.4)
 		verts = []
@@ -40,5 +41,9 @@ class Polygon:
 		self.ax.set_zlabel('Z')
 		self.ax.set_zlim3d(0, 1)
 
-		plt.show()
+		if view == "Image":
+			savefig('polygon.png')
+			print "Image saved on tredify folder"
+		else:
+			plt.show()
 

@@ -11,9 +11,9 @@ Requirements
 Use
 ---
 ```bash
-python tredify.py -i [JSON file path] -t [Plot type] -d [Plot dimension]
+python tredify.py -i [JSON file path] -t [Plot type] -d [Plot dimension] -v [Plot view GUI/Image]
 ```
-If you choose 3D dimension, it will be prompt the classical matplotlib GUI
+If you choose GUI view, it will be prompt the classical matplotlib interface
 
 JSON and plots examples
 ---

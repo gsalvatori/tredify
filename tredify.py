@@ -17,6 +17,7 @@ if __name__ == '__main__':
 	parser.add_argument('-i', '--input', type=str, help='JSON file path', required=True)
 	parser.add_argument('-t', '--type', type=str, help='Plot type (Bar,Scatter,Pie)', required=True)
 	parser.add_argument('-d', '--dimension', type=str, help='Plot Dimension (2D,3D)', required=False)
+	parser.add_argument('-v', '--view', type=str, help='Visualize plot with GUI or Image(GUI,Image)', required=True)
 	parser.add_argument('-title', '--title', type=str, help='Pie plot title', required=False)
 
 	args = parser.parse_args()
@@ -29,21 +30,33 @@ if __name__ == '__main__':
 		dict_bar = parse_bar.process_data()
 
 		bar = Bar(dict_bar)
-		bar.init()
+		if args.view == "Image":
+			bar.init("Image")
+		else:
+			bar.init("GUI")
 
 	elif args.type == "Scatter":
 		parse_scatter = ParseScatter(args.input)
 		dict_scatter = parse_scatter.process_data()
 
 		scatter = Scatter(dict_scatter)
-		scatter.init()
+
+		if args.view == "Image":
+			scatter.init("Image")
+		else:
+			scatter.init("GUI")
 
 	elif args.type == "Pie":
 		parse_pie = ParseBar(args.input)
 		dict_pie = parse_pie.process_data()
 
 		pie = Pie(dict_pie,args.title)
-		pie.init()
+
+		if args.view == "Image":
+			pie.init("Image")
+		else:
+			pie.init("GUI")
+
 
 
 

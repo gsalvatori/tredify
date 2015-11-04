@@ -40,7 +40,7 @@ class Pie:
 				
 		return exploded
 
-	def init(self):
+	def init(self,view):
 		labels = self.get_labels()
 		fracs = self.get_fractions()
 
@@ -52,6 +52,11 @@ class Pie:
 
 		title(self.title, bbox={'facecolor':'0.8', 'pad':5})
 
-		show()
+		if view == "Image":
+			savefig('pie.png')
+			print "Image saved on tredify folder"
+		else:
+			show()
+
 
 		

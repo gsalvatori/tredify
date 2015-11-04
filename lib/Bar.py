@@ -4,6 +4,7 @@ from matplotlib.colors import colorConverter
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.cm as cm
+from pylab import *
 
 class Bar:
 
@@ -21,7 +22,7 @@ class Bar:
 			z_coordinates.append(self.dict[i]["zs"])
 		return z_coordinates
 
-	def init(self):
+	def init(self,view):
 
 		zdir = self.dict[0]["DIRECTION"]
 		colors = self.get_colors()
@@ -35,4 +36,8 @@ class Bar:
 		self.ax.set_ylabel('Y')
 		self.ax.set_zlabel('Z')
 
-		plt.show()
+		if view == "Image":
+			savefig('bar.png')
+			print "Image saved on tredify folder"
+		else:
+			plt.show()
