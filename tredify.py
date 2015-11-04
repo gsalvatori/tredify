@@ -16,10 +16,14 @@ if __name__ == '__main__':
 	
 	parser = argparse.ArgumentParser(description='tredify: A Python framework to plot 2D and 3D structures from JSON data.')
 	parser.add_argument('-i', '--input', type=str, help='JSON file path', required=True)
-	parser.add_argument('-t', '--type', type=str, help='Plot type', required=True)
-	parser.add_argument('-d', '--dimension', type=str, help='2D/3D', required=False)
+	parser.add_argument('-t', '--type', type=str, help='Plot type (Bar,Scatter,Pie)', required=True)
+	parser.add_argument('-d', '--dimension', type=str, help='Plot Dimension (2D,3D)', required=False)
+	parser.add_argument('-title', '--title', type=str, help='Pie plot title', required=False)
 
 	args = parser.parse_args()
+ 
+	if args.type == 'Pie' and args.title == None:
+		parser.error('If you want a Pie plot, you also have to set a title with -title argument')
 
 	if args.type == "Bar":
 		parse_bar = ParseBar(args.input)
@@ -39,7 +43,7 @@ if __name__ == '__main__':
 		parse_pie = ParseBar(args.input)
 		dict_pie = parse_pie.process_data()
 
-		pie = Pie(dict_pie,None)
+		pie = Pie(dict_pie,args.title)
 		pie.init()
 
 
