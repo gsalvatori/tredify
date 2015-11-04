@@ -13,6 +13,7 @@ Use
 ```bash
 python tredify.py -i [JSON file path] -t [Plot type] -d [Plot dimension]
 ```
+If you choose 3D dimension, it will be prompt the classical matplotlib GUI
 
 JSON and plots examples
 ---
