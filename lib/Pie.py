@@ -1,41 +1,65 @@
 import numpy as np
-from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import random
+from mpl_toolkits.mplot3d import Axes3D
+from pylab import *
 
 
 class Pie:
 
-	def __init__(self,dict_):
-		self.fig = plt.figure()
-		self.ax = self.fig.add_subplot(111, projection='3d')
+	def __init__(self,dict_,title):
+		figure(1, figsize=(6,6))
+		self.ax = axes([0.1, 0.1, 0.8, 0.8])
 		self.dict = dict_
+		self.title = title
 
-	def get_colors(self):
-		return cm.rainbow(np.linspace(0, 1, len(self.dict)))
 
-	def get_shapes(self):
-		return {0: 'tickleft', '|': 'vline', 2: 'tickup', 3: 'tickdown', 4: 'caretleft', 5: 'caretright', ',': 'pixel', 1: 'tickright', '+': 'plus', 'D': 'diamond', 'v': 'triangle_down',
-		'1': 'tri_down', 'h': 'hexagon1', '*': 'star', 'None': 'nothing', '<': 'triangle_left', '': 'nothing', '2': 'tri_up', 's': 'square', ' ': 'nothing',
-		6: 'caretup', 'H': 'hexagon2', '3': 'tri_left', 'x': 'x', 7: 'caretdown', '4': 'tri_right', 'p': 'pentagon',
-		'>': 'triangle_right', '8': 'octagon', 'o': 'circle', '.': 'point', 'd': 'thin_diamond', '^': 'triangle_up', '_': 'hline'}
+	def get_labels(self):
+		labels = []
+		for i in range(0,len(self.dict)):
+			labels.append(self.dict[i]["LABEL"])
+
+		return labels
+
+
+	def get_fractions(self):
+		fractions = []
+		for i in range(0,len(self.dict)):
+			fractions.append(self.dict[i]["PERCENTAGE"])
+
+		return fractions
+
+
+	def get_exploded_pieces(self):
+		exploded = []
+
+		for i in range(0,len(self.dict)):
+			item = self.dict[i]["EXPLODE"]
+			if item == "True":
+				exploded.append(0.5)
+			else:
+				exploded.append(0)
+				
+		return exploded
+
 
 	def init(self):
+		labels = self.get_labels()
+		fracs = self.get_fractions()
 
-		colors = self.get_colors()
-		shapes = self.get_shapes()
-		marker = random.choice(shapes.keys())
+		# generating explode...
+		explode = self.get_exploded_pieces()
 
-		for i,c in zip(range(0,len(self.dict)),colors):
-			xs = self.dict[i]['x']
-			ys = self.dict[i]['y']
-			zs = self.dict[i]['z']
-			self.ax.scatter(xs, ys, zs, c=c, marker=marker)
+		pie(fracs, explode=explode, labels=labels,
+		                autopct='%1.1f%%', shadow=True, startangle=90)
+		                # The default startangle is 0, which would start
+		                # the Frogs slice on the x-axis.  With startangle=90,
+		                # everything is rotated counter-clockwise by 90 degrees,
+		                # so the plotting starts on the positive y-axis.
 
-		self.ax.set_xlabel('X Label')
-		self.ax.set_ylabel('Y Label')
-		self.ax.set_zlabel('Z Label')
+		title(self.title, bbox={'facecolor':'0.8', 'pad':5})
 
-		plt.show()
+		show()
+
 		

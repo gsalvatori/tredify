@@ -10,6 +10,7 @@ from Parser import *
 from config import *
 from Polygon import *
 from Scatter import *
+from Pie import *
 
 
 if __name__ == '__main__':
@@ -17,6 +18,5 @@ if __name__ == '__main__':
 	test = ParsePie("/home/gabriele/Scrivania/tredify/json/pie.json")
 	dict_ = test.process_data()
 
-	print dict_
-	# pie = Pie(dict_)
-	# pie.init()
+	pie = Pie(dict_,"Movies")
+	pie.init()

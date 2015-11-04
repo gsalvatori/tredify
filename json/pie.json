@@ -1,14 +1,22 @@
 [
     {
         "LABEL": "Drama",
-        "PERCENTAGE":30
+        "PERCENTAGE":20,
+        "EXPLODE": "False"
     },
     {
         "LABEL": "Scifi",
-        "PERCENTAGE":60 
+        "PERCENTAGE":60,
+        "EXPLODE": "False" 
     },
     {
         "LABEL": "Action",
-        "PERCENTAGE": 10
+        "PERCENTAGE": 10,
+        "EXPLODE": "True"
+    },
+    {
+        "LABEL": "Romance",
+        "PERCENTAGE": 10,
+        "EXPLODE": "True"
     }
 ]
