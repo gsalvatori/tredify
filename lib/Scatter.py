@@ -3,6 +3,7 @@ from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import random
+from pylab import *
 
 
 class Scatter:
@@ -21,7 +22,7 @@ class Scatter:
 		6: 'caretup', 'H': 'hexagon2', '3': 'tri_left', 'x': 'x', 7: 'caretdown', '4': 'tri_right', 'p': 'pentagon',
 		'>': 'triangle_right', '8': 'octagon', 'o': 'circle', '.': 'point', 'd': 'thin_diamond', '^': 'triangle_up', '_': 'hline'}
 
-	def init(self):
+	def init(self,view):
 
 		colors = self.get_colors()
 		shapes = self.get_shapes()
@@ -37,6 +38,10 @@ class Scatter:
 		self.ax.set_ylabel('Y Label')
 		self.ax.set_zlabel('Z Label')
 
-		plt.show()
+		if view == "Image":
+			savefig('scatter.png')
+			print "Image saved on tredify folder"
+		else:
+			plt.show()
 		
 
