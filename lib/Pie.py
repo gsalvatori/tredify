@@ -52,7 +52,7 @@ class Pie:
 
 		title(self.title, bbox={'facecolor':'0.8', 'pad':5})
 
-		if view == "Image":
+		if view == "image":
 			savefig('pie.png')
 			print "Image saved on tredify folder"
 		else:

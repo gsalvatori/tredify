@@ -38,7 +38,7 @@ class Scatter:
 		self.ax.set_ylabel('Y Label')
 		self.ax.set_zlabel('Z Label')
 
-		if view == "Image":
+		if view == "image":
 			self.fig.savefig('scatter3D.png')
 			print "Image saved on tredify folder"
 		else:
@@ -63,7 +63,7 @@ class Scatter2D:
 			area = np.pi * (15 * np.random.rand(50))**2  # 0 to 15 point radiuses
 			self.ax_2d.scatter(x, y, s=area, c=c, alpha=0.5)
 
-		if view == "Image":
+		if view == "image":
 			self.fig_2d.savefig('scatter2D.png')
 			print "Image saved on tredify folder"
 		else:

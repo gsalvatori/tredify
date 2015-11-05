@@ -38,7 +38,7 @@ class Bar:
 		self.ax.set_ylabel('Y')
 		self.ax.set_zlabel('Z')
 
-		if view == "Image":
+		if view == "image":
 			savefig('bar3D.png')
 			print "Image saved on tredify folder"
 		else:
@@ -65,7 +65,7 @@ class Bar2D:
 		ind = np.arange(N)  
 		plt.bar(ind, x_cs, y_cs, color=choice(colors))
 
-		if view == "Image":
+		if view == "image":
 			savefig('bar2D.png')
 			print "Image saved on tredify folder"
 		else:

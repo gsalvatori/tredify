@@ -17,7 +17,7 @@ sudo chmod +x setup.sh
 Use
 ---
 ```bash
-python tredify.py -i [JSON file path] -t [Plot type] -d [Plot dimension] -v [Plot view GUI/Image]
+python tredify.py -i {JSON file path} -t {bar,scatter,pie} -d {2D,3D} -v {gui,image}
 ```
 If you choose GUI view, it will be prompt the classical matplotlib interface
 

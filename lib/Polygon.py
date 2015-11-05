@@ -41,7 +41,7 @@ class Polygon:
 		self.ax.set_zlabel('Z')
 		self.ax.set_zlim3d(0, 1)
 
-		if view == "Image":
+		if view == "image":
 			savefig('polygon.png')
 			print "Image saved on tredify folder"
 		else:

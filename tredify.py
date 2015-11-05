@@ -15,9 +15,9 @@ if __name__ == '__main__':
 	
 	parser = argparse.ArgumentParser(description='tredify: A Python framework to plot 2D and 3D structures from JSON data.')
 	parser.add_argument('-i', '--input', type=str, help='JSON file path', required=True)
-	parser.add_argument('-t', '--type', type=str, help='Plot type', required=True)
-	parser.add_argument('-d', '--dimension', type=str, help='Plot Dimension', required=False)
-	parser.add_argument('-v', '--view', type=str, help='Visualize plot with GUI or Image', required=True)
+	parser.add_argument('-t', '--type', type=str, help='Plot type', required=True, choices=['bar','scatter','pie'])
+	parser.add_argument('-d', '--dimension', type=str, help='Plot Dimension', required=False, choices=['2D','3D'])
+	parser.add_argument('-v', '--view', type=str, help='Visualize plot with GUI or Image', required=True, choices=['gui','image'])
 	parser.add_argument('-title', '--title', type=str, help='Pie plot title', required=False)
 
 	args = parser.parse_args()
@@ -25,7 +25,7 @@ if __name__ == '__main__':
 	if args.type == 'Pie' and args.title == None:
 		parser.error('If you want a Pie plot, you also have to set a title with -title argument')
 
-	if args.type == "Bar":
+	if args.type == "bar":
 		parse_bar = ParseBar(args.input)
 		dict_bar = parse_bar.process_data()
 
@@ -34,12 +34,12 @@ if __name__ == '__main__':
 		else:
 			bar = Bar(dict_bar)
 
-		if args.view == "Image":
-			bar.init("Image")
+		if args.view == "image":
+			bar.init("image")
 		else:
-			bar.init("GUI")
+			bar.init("gui")
 
-	elif args.type == "Scatter":
+	elif args.type == "scatter":
 		parse_scatter = ParseScatter(args.input)
 		dict_scatter = parse_scatter.process_data()
 
@@ -48,12 +48,12 @@ if __name__ == '__main__':
 		else:
 			scatter = Scatter(dict_scatter)
 
-		if args.view == "Image":
-			scatter.init("Image")
+		if args.view == "image":
+			scatter.init("image")
 		else:
-			scatter.init("GUI")
+			scatter.init("gui")
 
-	elif args.type == "Pie":
+	elif args.type == "pie":
 		parse_pie = ParseBar(args.input)
 		dict_pie = parse_pie.process_data()
 
@@ -62,7 +62,7 @@ if __name__ == '__main__':
 		else:
 			pie = Pie(dict_pie,args.title)
 
-		if args.view == "Image":
-			pie.init("Image")
+		if args.view == "image":
+			pie.init("image")
 		else:
-			pie.init("GUI")
+			pie.init("gui")
