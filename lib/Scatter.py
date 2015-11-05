@@ -51,11 +51,13 @@ class Scatter2D:
 		self.fig_2d = plt.figure(2)
 		self.ax_2d = self.fig_2d.add_subplot(111)
 		self.dict = dict_
-		self.colors = Scatter(self.dict).get_colors()
+
+	def get_colors(self):
+		return cm.rainbow(np.linspace(0, 1, len(self.dict)))
 
 	def init(self,view):
 
-		for i,c in zip(range(0,len(self.dict)),self.colors):
+		for i,c in zip(range(0,len(self.dict)),self.get_colors()):
 			x = self.dict[i]['x']
 			y = self.dict[i]['y']
 			area = np.pi * (15 * np.random.rand(50))**2  # 0 to 15 point radiuses
