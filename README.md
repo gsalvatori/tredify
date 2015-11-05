@@ -108,5 +108,7 @@ JSON and plots examples
 ```
 ![Pie Plot](img/pie.png)
 
+other features soon...
+
 
 

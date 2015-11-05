@@ -18,7 +18,7 @@ class Scatter:
 
 	def get_shapes(self):
 		return {0: 'tickleft', '|': 'vline', 2: 'tickup', 3: 'tickdown', 4: 'caretleft', 5: 'caretright', ',': 'pixel', 1: 'tickright', '+': 'plus', 'D': 'diamond', 'v': 'triangle_down',
-		'1': 'tri_down', 'h': 'hexagon1', '*': 'star', 'None': 'nothing', '<': 'triangle_left', '': 'nothing', '2': 'tri_up', 's': 'square', ' ': 'nothing',
+		'1': 'tri_down', 'h': 'hexagon1', '*': 'star','<': 'triangle_left', '': 'nothing', '2': 'tri_up', 's': 'square', ' ': 'nothing',
 		6: 'caretup', 'H': 'hexagon2', '3': 'tri_left', 'x': 'x', 7: 'caretdown', '4': 'tri_right', 'p': 'pentagon',
 		'>': 'triangle_right', '8': 'octagon', 'o': 'circle', '.': 'point', 'd': 'thin_diamond', '^': 'triangle_up', '_': 'hline'}
 
