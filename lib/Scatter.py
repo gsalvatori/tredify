@@ -9,7 +9,7 @@ from pylab import *
 class Scatter:
 
 	def __init__(self,dict_):
-		self.fig = plt.figure()
+		self.fig = plt.figure(1)
 		self.ax = self.fig.add_subplot(111, projection='3d')
 		self.dict = dict_
 
@@ -39,7 +39,7 @@ class Scatter:
 		self.ax.set_zlabel('Z Label')
 
 		if view == "Image":
-			savefig('scatter.png')
+			self.fig.savefig('scatter3D.png')
 			print "Image saved on tredify folder"
 		else:
 			plt.show()
@@ -48,7 +48,7 @@ class Scatter:
 class Scatter2D:
 
 	def __init__(self,dict_):
-		self.fig_2d = plt.figure()
+		self.fig_2d = plt.figure(2)
 		self.ax_2d = self.fig_2d.add_subplot(111)
 		self.dict = dict_
 		self.colors = Scatter(self.dict).get_colors()
@@ -61,4 +61,8 @@ class Scatter2D:
 			area = np.pi * (15 * np.random.rand(50))**2  # 0 to 15 point radiuses
 			self.ax_2d.scatter(x, y, s=area, c=c, alpha=0.5)
 
-		plt.show()
+		if view == "Image":
+			self.fig_2d.savefig('scatter2D.png')
+			print "Image saved on tredify folder"
+		else:
+			plt.show()

@@ -15,9 +15,9 @@ if __name__ == '__main__':
 	
 	parser = argparse.ArgumentParser(description='tredify: A Python framework to plot 2D and 3D structures from JSON data.')
 	parser.add_argument('-i', '--input', type=str, help='JSON file path', required=True)
-	parser.add_argument('-t', '--type', type=str, help='Plot type (Bar,Scatter,Pie)', required=True)
-	parser.add_argument('-d', '--dimension', type=str, help='Plot Dimension (2D,3D)', required=False)
-	parser.add_argument('-v', '--view', type=str, help='Visualize plot with GUI or Image(GUI,Image)', required=True)
+	parser.add_argument('-t', '--type', type=str, help='Plot type', required=True)
+	parser.add_argument('-d', '--dimension', type=str, help='Plot Dimension', required=False)
+	parser.add_argument('-v', '--view', type=str, help='Visualize plot with GUI or Image', required=True)
 	parser.add_argument('-title', '--title', type=str, help='Pie plot title', required=False)
 
 	args = parser.parse_args()
