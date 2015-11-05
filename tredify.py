@@ -29,7 +29,11 @@ if __name__ == '__main__':
 		parse_bar = ParseBar(args.input)
 		dict_bar = parse_bar.process_data()
 
-		bar = Bar(dict_bar)
+		if args.dimension == "2D":
+			bar = Bar2D(dict_bar)
+		else:
+			bar = Bar(dict_bar)
+
 		if args.view == "Image":
 			bar.init("Image")
 		else:
@@ -39,7 +43,10 @@ if __name__ == '__main__':
 		parse_scatter = ParseScatter(args.input)
 		dict_scatter = parse_scatter.process_data()
 
-		scatter = Scatter(dict_scatter)
+		if args.dimension == "2D":
+			scatter = Scatter2D(dict_scatter)
+		else:
+			scatter = Scatter(dict_scatter)
 
 		if args.view == "Image":
 			scatter.init("Image")
@@ -50,7 +57,10 @@ if __name__ == '__main__':
 		parse_pie = ParseBar(args.input)
 		dict_pie = parse_pie.process_data()
 
-		pie = Pie(dict_pie,args.title)
+		if args.dimension == "2D":
+			pie = Pie2D(dict_pie,args.title)
+		else:
+			pie = Pie(dict_pie,args.title)
 
 		if args.view == "Image":
 			pie.init("Image")

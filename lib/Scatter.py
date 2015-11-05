@@ -43,5 +43,22 @@ class Scatter:
 			print "Image saved on tredify folder"
 		else:
 			plt.show()
-		
 
+
+class Scatter2D:
+
+	def __init__(self,dict_):
+		self.fig_2d = plt.figure()
+		self.ax_2d = self.fig_2d.add_subplot(111)
+		self.dict = dict_
+		self.colors = Scatter(self.dict).get_colors()
+
+	def init(self,view):
+
+		for i,c in zip(range(0,len(self.dict)),self.colors):
+			x = self.dict[i]['x']
+			y = self.dict[i]['y']
+			area = np.pi * (15 * np.random.rand(50))**2  # 0 to 15 point radiuses
+			self.ax_2d.scatter(x, y, s=area, c=c, alpha=0.5)
+
+		plt.show()
