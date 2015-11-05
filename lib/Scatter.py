@@ -2,7 +2,7 @@ import numpy as np
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
-import random
+from random import *
 from pylab import *
 
 
@@ -26,7 +26,7 @@ class Scatter:
 
 		colors = self.get_colors()
 		shapes = self.get_shapes()
-		marker = random.choice(shapes.keys())
+		marker = choice(shapes.keys())
 
 		for i,c in zip(range(0,len(self.dict)),colors):
 			xs = self.dict[i]['x']
