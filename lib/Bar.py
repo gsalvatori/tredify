@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.cm as cm
 from pylab import *
+from random import *
+
 
 class Bar:
 
@@ -36,8 +38,36 @@ class Bar:
 		self.ax.set_ylabel('Y')
 		self.ax.set_zlabel('Z')
 
-		if view == "Image":
-			savefig('bar.png')
+		if view == "image":
+			savefig('bar3D.png')
 			print "Image saved on tredify folder"
 		else:
 			plt.show()
+
+
+class Bar2D:
+
+	def __init__(self,dict_):
+		self.fig_2d = plt.figure()
+		self.ax_2d = self.fig_2d.add_subplot(111)
+		self.dict = dict_
+
+	def get_colors(self):
+		return cm.rainbow(np.linspace(0, 1, len(self.dict)))
+
+	def init(self,view):
+
+		colors = self.get_colors()
+
+		x_cs = self.dict[1]['xs']
+		y_cs = self.dict[1]['ys']      
+		N = len(x_cs)
+		ind = np.arange(N)  
+		plt.bar(ind, x_cs, y_cs, color=choice(colors))
+
+		if view == "image":
+			savefig('bar2D.png')
+			print "Image saved on tredify folder"
+		else:
+			plt.show()
+
