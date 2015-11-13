@@ -14,6 +14,17 @@ sudo chmod +x setup.sh
 ```bash
 ./setup.sh
 ```
+If you also want to manage GIS data, you have to install other requirements:
+```bash
+git clone https://github.com/matplotlib/basemap
+cd basemap
+python setup.py install
+```
+```bash
+echo "deb http://archive.ubuntu.com/ubuntu/ vivid universe" | sudo tee -a "/etc/apt/sources.list"
+sudo apt-get install python-pip
+sudo pip install geojson
+```
 
 Use
 ---
