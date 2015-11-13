@@ -10,11 +10,9 @@ echo "deb http://archive.ubuntu.com/ubuntu/ vivid universe" | sudo tee -a "/etc/
 sudo apt-get install python-pip
 echo Installing python Basemap toolkit...
 
-
-
-
-
-
+git clone https://github.com/matplotlib/basemap
+cd basemap
+python setup.py install
 
 
 echo "Installing geojson python module for GIS support..."
