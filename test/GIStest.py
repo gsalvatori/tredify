@@ -17,5 +17,5 @@ if __name__ == '__main__':
 	parse_GIS = Parser('../json/geojson.json')
 	dict_gis = parse_GIS.load_json()
 
-	print dict_gis
- 
+	point = GIS(dict_gis)
+	point.init()
