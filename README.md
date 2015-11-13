@@ -21,6 +21,20 @@ python tredify.py -i {JSON file path} -t {bar,scatter,pie} -d {2D,3D} -v {gui,im
 ```
 If you choose GUI view, it will be prompt the classical matplotlib interface
 
+Stable Release
+---
+Clone master branch of this repo:
+```bash
+git clone https://github.com/gsalvatori/tredify/
+```
+or download the latest release from [here](https://github.com/gsalvatori/tredify/releases)
+
+Development release
+---
+```bash
+git clone -b development https://github.com/gsalvatori/tredify/
+```
+
 JSON and plots examples
 ---
 **Scatter**
