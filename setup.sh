@@ -7,7 +7,7 @@ sudo apt-get install python-numpy
 echo Done.
 echo "Check if pip is installed..."
 echo "deb http://archive.ubuntu.com/ubuntu/ vivid universe" | sudo tee -a "/etc/apt/sources.list"
-echo sudo apt-get install python-pip
+sudo apt-get install python-pip
 echo "Installing geojson python module for GIS support..."
-echo pip install geojson
+sudo pip install geojson
 
