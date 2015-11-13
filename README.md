@@ -7,7 +7,7 @@ Requirements
 ---
 * matplotlib
 * numpy
-* geojson
+
 ```bash
 sudo chmod +x setup.sh
 ```
