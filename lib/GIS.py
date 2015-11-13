@@ -15,12 +15,17 @@ class GIS:
 	def __init__(self,dict_):
 		self.coordinates = dict_["coordinates"]
 		self.type = dict_["type"]
-		self.map = Basemap(projection='ortho',lat_0=self.coordinates[0],lon_0=self.coordinates[1],resolution='l')
+		self.map = Basemap(projection='merc',resolution='h')
 
 	def point(self):
-		x,y = self.map(self.coordinates[0],self.coordinates[1])
-		my_map.plot(x, y, 'bo', markersize=12)
+		self.map.drawcoastlines()
+		self.map.drawcountries()
+		self.map.fillcontinents(color = 'coral')
+		self.map.drawmapboundary()
 
+		x,y = self.map(self.coordinates[0],self.coordinates[1])
+		self.map.plot(x, y, 'bo', markersize=10)
+		 
 		plt.show()
 
 	def init(self):
