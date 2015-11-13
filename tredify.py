@@ -9,6 +9,7 @@ from Polygon import *
 from Scatter import *
 from Pie import *
 from Bar import *
+from GIS import *
 
 
 if __name__ == '__main__':
