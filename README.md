@@ -16,9 +16,7 @@ sudo chmod +x setup.sh
 ```
 If you also want to manage GIS data, you have to install other requirements:
 
-* GEOS engine
-* geojson
-
+* GEOS engine and Basemap
 ```bash
 wget http://sourceforge.net/projects/matplotlib/files/matplotlib-toolkits/basemap-1.0.7/basemap-1.0.7.tar.gz
 tar -xzvf basemap-1.0.7.tar.gz
@@ -30,7 +28,7 @@ sudo make install
 cd ..
 sudo python setup.py install
 ```
-
+* geojson
 ```bash
 echo "deb http://archive.ubuntu.com/ubuntu/ vivid universe" | sudo tee -a "/etc/apt/sources.list"
 sudo apt-get install python-pip
