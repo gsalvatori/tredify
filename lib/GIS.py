@@ -15,7 +15,9 @@ class GIS:
 	def __init__(self,dict_):
 		self.coordinates = dict_["coordinates"]
 		self.type = dict_["type"]
-		self.map = Basemap(projection='merc',resolution='h')
+
+		# we set low resolution as default setting 
+		self.map = Basemap(projection='merc',resolution='l')
 
 	def point(self):
 		self.map.drawcoastlines()
@@ -29,4 +31,5 @@ class GIS:
 		plt.show()
 
 	def init(self):
-		self.point()
+		if self.type == "Point":
+			self.point()
