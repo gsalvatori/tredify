@@ -12,22 +12,31 @@ from Bar import *
 from GIS import *
 
 
+# TODO: Manage CLI with callback functions to OOP methods
+# this is a temporary solution
+def gis(arg):
+	parse_GIS = Parser(args.input)
+	dict_gis = parse_GIS.load_json()
+
+	obj = GIS(dict_gis)
+	obj.init()
+
+
 if __name__ == '__main__':
 	
-	### Standard parser arguments ###
 	parser = argparse.ArgumentParser(description='tredify: A Python framework to plot 2D and 3D structures from JSON data.')
 	parser.add_argument('-i', '--input', type=str, help='JSON file path', required=True)
+	parser.add_argument('-gis','--gis',help='geoJSON structure',required=False,choices=['point','linestring'])
 	parser.add_argument('-t', '--type', type=str, help='Plot type', required=False, choices=['bar','scatter','pie'])
 	parser.add_argument('-d', '--dimension', type=str, help='Plot Dimension', required=False, choices=['2D','3D'])
 	parser.add_argument('-v', '--view', type=str, help='Visualize plot with GUI or Image', required=False, choices=['gui','image'])
 	parser.add_argument('-title', '--title', type=str, help='Pie plot title', required=False)
 	args = parser.parse_args()
-	#################################
-	
-	### GIS subparser for -gis argument ###
 
-	#######################################
- 
+	if args.gis:
+		gis(args.gis)
+
+	
 	if args.type == 'Pie' and args.title == None:
 		parser.error('If you want a Pie plot, you also have to set a title with -title argument')
 
