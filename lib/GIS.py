@@ -30,6 +30,20 @@ class GIS:
 		 
 		plt.show()
 
+	def linestring(self):
+		self.map.drawcoastlines()
+		self.map.drawcountries()
+		self.map.fillcontinents(color = 'coral')
+		self.map.drawmapboundary()
+
+		x,y = self.map(self.coordinates[0],self.coordinates[1])
+		self.map.plot(x, y, color="green", linewidth=1.0, linestyle="-")
+		 
+		plt.show()
+
+
 	def init(self):
 		if self.type == "Point":
 			self.point()
+		elif self.type == "LineString":
+			self.linestring()
