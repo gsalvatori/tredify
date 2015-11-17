@@ -7,11 +7,32 @@ Requirements
 ---
 * matplotlib
 * numpy
+
 ```bash
 sudo chmod +x setup.sh
 ```
 ```bash
 ./setup.sh
+```
+If you also want to manage GIS data, you have to install other requirements:
+
+* GEOS engine and Basemap
+```bash
+wget http://sourceforge.net/projects/matplotlib/files/matplotlib-toolkits/basemap-1.0.7/basemap-1.0.7.tar.gz
+tar -xzvf basemap-1.0.7.tar.gz
+cd basemap-1.0.7/geos-3.3.3/
+export GEOS_DIR=/usr/local/
+./configure --prefix=$GEOS_DIR
+make
+sudo make install
+cd ..
+sudo python setup.py install
+```
+* geojson
+```bash
+echo "deb http://archive.ubuntu.com/ubuntu/ vivid universe" | sudo tee -a "/etc/apt/sources.list"
+sudo apt-get install python-pip
+sudo pip install geojson
 ```
 
 Use
@@ -20,6 +41,12 @@ Use
 python tredify.py -i {JSON file path} -t {bar,scatter,pie} -d {2D,3D} -v {gui,image}
 ```
 If you choose GUI view, it will be prompt the classical matplotlib interface
+
+To generate structures from geoJSON file:
+
+```bash
+python tredify.py -i {JSON file path} -gis {geoJSON structure [point,linestring,...]}
+```
 
 Stable Release
 ---
