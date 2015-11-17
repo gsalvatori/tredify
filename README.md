@@ -42,6 +42,12 @@ python tredify.py -i {JSON file path} -t {bar,scatter,pie} -d {2D,3D} -v {gui,im
 ```
 If you choose GUI view, it will be prompt the classical matplotlib interface
 
+To generate structures from geoJSON file:
+
+```bash
+python tredify.py -i {JSON file path} -gis {geoJSON structure [point,linestring,...]}
+```
+
 Stable Release
 ---
 Clone master branch of this repo:
