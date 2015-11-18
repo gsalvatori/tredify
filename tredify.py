@@ -9,7 +9,6 @@ from Polygon import *
 from Scatter import *
 from Pie import *
 from Bar import *
-from GIS import *
 
 
 # TODO: Manage CLI with callback functions to OOP methods
@@ -34,6 +33,7 @@ if __name__ == '__main__':
 	args = parser.parse_args()
 
 	if args.gis:
+		from GIS import *
 		gis(args.gis)
 
 	
