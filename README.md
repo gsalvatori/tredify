@@ -10,13 +10,22 @@ Requirements
 
 Install
 ---
-Install dependences with **conda** (recommended)
+Install dependences with **conda** (recommended):
 
 Download miniconda sh installer [here](http://conda.pydata.org/miniconda.html)
 
 ```bash
 bash Miniconda-latest-Linux-*.sh
 ```
+Create an environment
+```bash
+conda create -n tredifyenv python=2.7
+```
+Activate environment
+```bash
+source activate tredifyenv
+```
+Install packages
 ```bash
 conda install numpy
 ```
@@ -24,6 +33,7 @@ conda install numpy
 ```bash
 conda install matplotlib
 ```
+--
 or launch **setup.sh** file
 ```bash
 sudo chmod +x setup.sh
@@ -31,7 +41,9 @@ sudo chmod +x setup.sh
 ```bash
 ./setup.sh
 ```
-
+--
+GIS / geoJSON
+---
 If you also want to manage GIS data, you have to install other requirements:
 
 * GEOS engine and Basemap
