@@ -8,12 +8,30 @@ Requirements
 * matplotlib
 * numpy
 
+Install
+---
+Install dependences with **conda** (recommended)
+
+Download miniconda sh installer [here](http://conda.pydata.org/miniconda.html)
+
+```bash
+bash Miniconda-latest-Linux-*.sh
+```
+```bash
+conda install numpy
+```
+
+```bash
+conda install matplotlib
+```
+or launch **setup.sh** file
 ```bash
 sudo chmod +x setup.sh
 ```
 ```bash
 ./setup.sh
 ```
+
 If you also want to manage GIS data, you have to install other requirements:
 
 * GEOS engine and Basemap
