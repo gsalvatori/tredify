@@ -41,7 +41,9 @@ sudo chmod +x setup.sh
 ```bash
 ./setup.sh
 ```
-
+--
+GIS / geoJSON
+---
 If you also want to manage GIS data, you have to install other requirements:
 
 * GEOS engine and Basemap
