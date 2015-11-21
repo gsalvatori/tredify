@@ -12,11 +12,6 @@ Install
 ---
 Install dependences with **conda** (recommended):
 
-Download miniconda sh installer [here](http://conda.pydata.org/miniconda.html)
-
-```bash
-bash Miniconda-latest-Linux-*.sh
-```
 Create an environment
 ```bash
 conda create -n tredifyenv python=2.7
@@ -48,21 +43,14 @@ If you also want to manage GIS data, you have to install other requirements:
 
 * GEOS engine and Basemap
 ```bash
-wget http://sourceforge.net/projects/matplotlib/files/matplotlib-toolkits/basemap-1.0.7/basemap-1.0.7.tar.gz
-tar -xzvf basemap-1.0.7.tar.gz
-cd basemap-1.0.7/geos-3.3.3/
-export GEOS_DIR=/usr/local/
-./configure --prefix=$GEOS_DIR
-make
-sudo make install
-cd ..
-sudo python setup.py install
+conda install geos
+```
+```bash
+conda install basemap
 ```
 * geojson
 ```bash
-echo "deb http://archive.ubuntu.com/ubuntu/ vivid universe" | sudo tee -a "/etc/apt/sources.list"
-sudo apt-get install python-pip
-sudo pip install geojson
+pip install geojson
 ```
 
 Use
