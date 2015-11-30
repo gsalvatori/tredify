@@ -40,9 +40,19 @@ sudo pip install geojson
 Use
 ---
 ```bash
-python tredify.py -i {JSON file path} -t {bar,scatter,pie} -d {2D,3D} -v {gui,image}
+python tredify.py -i {JSON file path} -t {bar,scatter,pie,animation} -d {2D,3D} -v {gui,image}
 ```
 If you choose GUI view, it will be prompt the classical matplotlib interface
+
+Animation only works with gui visualization. On utils/ there is a csv2json.py tool to convert sequences
+of csv files containing particles positions into a suitable json for tredify. utils/ contains a testdata folder
+with data produced by a simple 3 body simulation of the Sun-Earth-Jupiter system. The expected file format is csv and each file
+represent a point in time. It is assumed that the file has at least 3 columns for the x, y and z position of each particle.
+
+```bash
+python csv2json.py -i {folder containing csv files} -o {output json file} -s {number of lines to skip}
+```
+
 
 Stable Release
 ---
