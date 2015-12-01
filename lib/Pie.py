@@ -8,55 +8,53 @@ from pylab import *
 
 class Pie:
 
-	def __init__(self,dict_,title):
-		figure(1, figsize=(6,6))
-		self.ax = axes([0.1, 0.1, 0.8, 0.8])
-		self.dict = dict_
-		self.title = title
+    def __init__(self, dict_, title):
+        figure(1, figsize=(6,6))
+        self.ax = axes([0.1, 0.1, 0.8, 0.8])
+        self.dict = dict_
+        self.title = title
 
-	def get_labels(self):
-		labels = []
-		for i in range(0,len(self.dict)):
-			labels.append(self.dict[i]["LABEL"])
+    def get_labels(self):
+        labels = []
+        for i in range(0,len(self.dict)):
+            labels.append(self.dict[i]["LABEL"])
 
-		return labels
+        return labels
 
-	def get_fractions(self):
-		fractions = []
-		for i in range(0,len(self.dict)):
-			fractions.append(self.dict[i]["PERCENTAGE"])
+    def get_fractions(self):
+        fractions = []
+        for i in range(0,len(self.dict)):
+            fractions.append(self.dict[i]["PERCENTAGE"])
 
-		return fractions
+        return fractions
 
-	def get_exploded_pieces(self):
-		exploded = []
+    def get_exploded_pieces(self):
+        exploded = []
 
-		for i in range(0,len(self.dict)):
-			item = self.dict[i]["EXPLODE"]
-			if item == "True":
-				exploded.append(0.5)
-			else:
-				exploded.append(0)
-				
-		return exploded
+        for i in range(0, len(self.dict)):
+            item = self.dict[i]["EXPLODE"]
+            if item == "True":
+                exploded.append(0.5)
+            else:
+                exploded.append(0)
+                
+        return exploded
 
-	def init(self,view):
-		labels = self.get_labels()
-		fracs = self.get_fractions()
+    def init(self, view):
+        labels = self.get_labels()
+        fracs = self.get_fractions()
 
-		# generating explode...
-		explode = self.get_exploded_pieces()
+        # generating explode...
+        explode = self.get_exploded_pieces()
 
-		pie(fracs, explode=explode, labels=labels,
-		                autopct='%1.1f%%', shadow=True, startangle=90)
+        pie(fracs, explode=explode, labels=labels,
+            autopct='%1.1f%%', shadow=True, startangle=90)
 
-		title(self.title, bbox={'facecolor':'0.8', 'pad':5})
+        title(self.title, bbox={'facecolor': '0.8', 'pad': 5})
 
-		if view == "image":
-			savefig('pie.png')
-			print "Image saved on tredify folder"
-		else:
-			show()
+        if view == "image":
+            savefig('pie.png')
+            print "Image saved on tredify folder"
+        else:
+            show()
 
-
-		
